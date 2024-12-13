@@ -1,4 +1,3 @@
-```markdown
 # LAVAD - Language-Augmented Visual Anomaly Detection
 
 This repository contains a collection of notebooks and experiments focused on **LAVAD** (Language-Augmented Visual Anomaly Detection) for video-based anomaly detection. The goal is to demonstrate the capabilities of generative AI models for detecting anomalies in videos. Through LAVAD, we aim to efficiently detect theft and suspicious behavior in real-time, with minimal to no training required.
