@@ -6,7 +6,7 @@ This repository contains a collection of notebooks and experiments focused on **
 
 **LAVAD** integrates Natural Language Processing (NLP) with Computer Vision (CV) models to enhance anomaly detection by combining textual prompts with visual inputs. This integration enables the system to recognize patterns of suspicious activity, such as shoplifting or fraudulent behaviors, without the need for extensive labeled datasets or model retraining.
 
-![LAVAD Architecture](images/lavad3.png)
+![LAVAD Architecture](/lavad3.png)
 
 In this repository, we experiment with various models like **BLIP-2**, **Qwen**, and **KOSMOS**, along with techniques such as **FAISS** for caption refinement and similarity-based analysis. The repository also contains detailed scripts for frame extraction, caption generation, and results evaluation.
 
