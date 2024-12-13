@@ -13,14 +13,9 @@ In this repository, we experiment with various models like **BLIP-2**, **Qwen**,
 1. **[Introduction](#introduction)**
 2. **[Setup and Installation](#setup-and-installation)**
 3. **[How LAVAD Works](#how-lavad-works)**
-4. **[Experimentation and Results](#experimentation-and-results)**
-5. **[Usage](#usage)**
-6. **[Folder Structure](#folder-structure)**
-7. **[Scripts](#scripts)**
-8. **[Notebooks](#notebooks)**
-9. **[Results](#results)**
-10. **[Contributing](#contributing)**
-11. **[License](#license)**
+4. **[Experimentation](#experimentation-and-results)**
+6. **[Contributing](#contributing)**
+7. **[License](#license)**
 
 ## Introduction
 
@@ -28,9 +23,10 @@ LAVAD aims to improve anomaly detection by combining **Vision-Language Models (V
 
 ### Key Concepts:
 - **Vision-Language Models (VLM)**: These models combine visual inputs (e.g., frames from a video) with textual descriptions to provide a deeper understanding of the visual content.
-- **Large Language Models (LLM)**: LLMs like **GPT-3** or **T5** can generate text-based anomaly scores based on input descriptions. In LAVAD, LLMs analyze the output from VLMs and provide a numerical score indicating the likelihood of anomalous behavior.
+- **Large Language Models (LLM)**: LLMs like **LLAMA** **Mistral** can generate text-based anomaly scores based on input descriptions. In LAVAD, LLMs analyze the output from VLMs and provide a numerical score indicating the likelihood of anomalous behavior.
 
 ## Setup and Installation
+
 
 ### Requirements
 
@@ -48,4 +44,57 @@ Clone the repository and install the required dependencies:
 ```bash
 git clone https://github.com/your-username/LAVAD-Anomaly-Detection-Experiments.git
 cd LAVAD-Anomaly-Detection-Experiments
-pip install -r requirements.txt
+run the notebooks
+
+## How LAVAD Works
+
+The process works as follows:
+- Frame Extraction: Video is broken into individual frames using OpenCV.
+- Frame Captioning: Each frame is passed to the VLM, which generates a textual description of what is happening in the frame.
+- Caption Cleaning: A caption cleaning process compares each frame’s caption to those of similar frames, ensuring the description accurately matches the visual scene and removing any noise.
+- Summarization: Captions across a temporal window are aggregated to create a scene summary that captures the broader context of actions over time.
+- Anomaly Detection: These descriptions are then analyzed by an LLM (e.g., GPT-3) to generate an anomaly score based on predefined behavioral patterns (e.g., theft, fraud).
+
+Large Language Models (LLM) for Anomaly Scoring
+Once captions are generated for each frame, the system feeds these captions into a Large Language Model for evaluation. The LLM calculates a theft score based on the context provided in the captions, outputting a score between 0.0 (normal behavior) and 1.0 (high likelihood of theft).
+
+LAVAD achieves zero-shot detection, meaning that it doesn't require any retraining or fine-tuning of models on labeled datasets. Instead, it uses prompt engineering to guide the model in making predictions.
+
+## Experimentation 
+
+Model Selection
+During experimentation, different versions of the BLIP and Qwen models were evaluated for their ability to generate meaningful captions from video frames. The following models were explored:
+
+BLIP-2: This model provides excellent frame-level captioning but requires additional fine-tuning for anomaly detection.
+KOSMOS: Captions generated are more detailed but looks less accurate. The model is almost  as memory intensive as BLIP and I experimented using text prompt.
+Qwen (Qwen2-VL): More powerful for handling large-scale video data, it also supports text-to-image and text-to-video tasks, making it ideal for this use case.
+We also implemented FAISS for caption refinement, which helps by finding semantically similar captions and using them to refine the outputs of the model.
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+
+
+If you like this project...
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./MIT) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
