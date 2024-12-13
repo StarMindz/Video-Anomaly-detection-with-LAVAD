@@ -71,6 +71,9 @@ The process works as follows:
 4. **Summarization:** Captions across a temporal window are aggregated to create a scene summary that captures the broader context of actions over time.
 5. **Anomaly Detection:** These descriptions are then analyzed by an LLM (e.g., GPT-3) to generate an anomaly score based on predefined behavioral patterns (e.g., theft, fraud).
 
+![lavad2](https://github.com/user-attachments/assets/bb4540f2-3c63-49c5-aa54-cb241952b358)
+
+
 ### Large Language Models (LLM) for Anomaly Scoring
 
 Once captions are generated for each frame, the system feeds these captions into a Large Language Model for evaluation. The LLM calculates a theft score based on the context provided in the captions, outputting a score between 0.0 (normal behavior) and 1.0 (high likelihood of theft).
