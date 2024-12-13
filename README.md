@@ -90,20 +90,16 @@ We also implemented **FAISS** for caption refinement, which helps by finding sem
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-
 Feel free to check the [issues page](https://github.com/your-username/LAVAD-Anomaly-Detection-Experiments/issues).
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ⭐️ Show Your Support
 
 If you like this project, please give it a ⭐️ and share it with others!
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ```
